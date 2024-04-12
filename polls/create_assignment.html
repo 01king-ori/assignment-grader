@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Assignment{% endblock %}
+
+{% block content %}
+<h2>Create Assignment for {{ course.name }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" required><br>
+    <label for="description">Description (optional):</label>
+    <textarea name="description" id="description" rows="5" cols="80"></textarea><br>
+    <label for="due_date">Due Date (YYYY-MM-DD HH:MM):</label>
+    <input type="datetime-local" name="due_date" id="due_date" required><br>
+    <label for="keywords">Keywords (comma-separated):</label>
+    <input type="text" name="keywords" id="keywords" required><br>
+    <label for="marking_scheme">Marking Scheme (JSON format):</label>
+    <textarea name="marking_scheme" id="marking_scheme" rows="10" cols="80" required></textarea><br
+

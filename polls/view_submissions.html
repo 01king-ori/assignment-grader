@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Submissions</title>
+</head>
+<body>
+    <h1>Submissions for Assignment {{ assignment.title }}</h1>
+
+    {% if submissions %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Submitted At</th>
+                    <th>Grade</th>
+                    <th>Feedback</th>
+                    <th>Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for submission in submissions %}
+                <tr>
+                    <td>{{ submission.student }}</td>
+                    <td>{{ submission.submitted_at }}</td>
+                    <td>{{ submission.grade }}</td>
+                    <td>{{ submission.feedback }}</td>
+                    <td>{{ submission.content|truncatechars:50 }}</td>  </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No submissions found for this assignment.</p>
+    {% endif %}
+</body>
+</html>
+
